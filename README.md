@@ -398,15 +398,6 @@ Retail360/
 
 - `powerbi/Retail360.pbix`
 
-### 📚 Documentation
-
-- `documentation/DAX_Measures.md`
-- `documentation/PROJECT_ARCHITECTURE.md`
-- `documentation/SQL_Database.md`
-- `documentation/DBT_Transformation.md`
-- `documentation/PYTHON_Data_Processing.md`
-- `documentation/POWERBI_Dashboard.md`
-
 ## 📚 Documentation
 
 Detailed project documentation is available in the `documentation` folder:
