@@ -1,0 +1,41 @@
+# Python virtual environments
+.venv/
+.dbt-venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# dbt generated files
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Project logs
+logs/
+
+# Secrets
+.env
+*.env
+*.key
+*.pem
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large datasets
+Data/raw/
+Data/processed/

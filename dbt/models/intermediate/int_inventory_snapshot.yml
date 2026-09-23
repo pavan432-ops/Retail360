@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: int_inventory_snapshot
+    description: "Analytical inventory snapshot aggregated to one row per inventory date, store, and product. Duplicate source observations are retained through observation counts and duplicate flags."
+
+    columns:
+      - name: inventory_date
+        description: "Inventory observation date."
+        tests:
+          - not_null
+
+      - name: store_id
+        description: "Store identifier."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_stores')
+              field: store_id
+
+      - name: product_id
+        description: "Product identifier."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: avg_stock_quantity
+        description: "Average recorded stock quantity across observations for the same date, store, and product."
+
+      - name: avg_reorder_level
+        description: "Average reorder level across observations for the same date, store, and product."
+
+      - name: observation_count
+        description: "Number of source inventory observations represented by the analytical grain."
+
+      - name: duplicate_grain_flag
+        description: "Flag indicating that multiple source observations existed for the same date, store, and product."
+
+      - name: stock_missing_flag
+        description: "Flag indicating that all stock observations for the analytical grain were missing."
+
+      - name: below_reorder_flag
+        description: "Flag indicating that average stock is below average reorder level."

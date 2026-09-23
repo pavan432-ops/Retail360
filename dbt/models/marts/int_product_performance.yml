@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: int_product_performance
+    description: "Product performance classification based on sales and gross margin benchmarks."
+
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: performance_segment
+        description: "Product performance classification based on sales and margin benchmarks."
+        tests:
+          - accepted_values:
+              values:
+                - "High Sales - High Margin"
+                - "High Sales - Low Margin"
+                - "Low Sales - High Margin"
+                - "Low Sales - Low Margin"
+                - "Data Quality Review"

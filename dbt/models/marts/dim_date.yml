@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Calendar dimension for Retail360 time-based analysis."
+
+    columns:
+      - name: date_day
+        description: "Calendar date and primary key of the date dimension."
+        tests:
+          - unique
+          - not_null
+
+      - name: year
+        description: "Calendar year."
+
+      - name: quarter
+        description: "Calendar quarter from 1 to 4."
+
+      - name: month
+        description: "Calendar month number."
+
+      - name: month_name
+        description: "Calendar month name."
+
+      - name: day
+        description: "Day of the month."
+
+      - name: day_of_week
+        description: "Numeric day of week."
+
+      - name: day_name
+        description: "Name of the day."
+
+      - name: is_weekend
+        description: "Flag indicating whether the date falls on Saturday or Sunday."

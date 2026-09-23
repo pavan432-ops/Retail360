@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: int_return_metrics
+    description: "Product-level return metrics and return data-quality indicators."
+
+    columns:
+      - name: product_id
+        description: "Product identifier associated with returned transactions."
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: product_name
+        description: "Product name from the product dimension."
+
+      - name: category
+        description: "Product category."
+
+      - name: subcategory
+        description: "Product subcategory."
+
+      - name: brand
+        description: "Product brand."
+
+      - name: return_count
+        description: "Number of return records associated with the product."
+
+      - name: returned_units
+        description: "Total valid returned units; invalid source quantities are retained as NULL."
+
+      - name: invalid_quantity_rows
+        description: "Number of return records with invalid or missing return quantity."
+
+      - name: unmatched_order_rows
+        description: "Number of return records whose order was not found in the sales fact."
+
+      - name: exceeds_sold_rows
+        description: "Number of return records where returned quantity exceeds recorded sold quantity."
+
+      - name: return_before_order_rows
+        description: "Number of return records where the return date occurs before the original order date."

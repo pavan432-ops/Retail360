@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: int_product_return_rate
+    description: "Product-level sales and return metrics used to calculate return rates."
+
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: sold_units
+        description: "Total units sold for the product."
+
+      - name: returned_units
+        description: "Total valid returned units for the product."
+
+      - name: return_count
+        description: "Total return records for the product."
+
+      - name: return_rate_pct
+        description: "Returned units divided by sold units, expressed as a percentage."
+
+      - name: invalid_quantity_rows
+        description: "Return records with invalid or missing return quantities."
+
+      - name: unmatched_order_rows
+        description: "Return records whose order was not found in the sales fact."
+
+      - name: exceeds_sold_rows
+        description: "Return records where returned quantity exceeds recorded sold quantity."
+
+      - name: return_before_order_rows
+        description: "Return records where the return date occurs before the original order date."

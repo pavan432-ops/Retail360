@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Sales transaction fact table at order-line grain."
+
+    columns:
+      - name: order_id
+        description: "Identifier for the customer order."
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Product identifier for the order line."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: store_id
+        description: "Store identifier for the order line."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_stores')
+              field: store_id
+
+      - name: quantity
+        description: "Number of units sold."
+        tests:
+          - not_null
+
+      - name: discount
+        description: "Discount expressed as a decimal fraction."
+        tests:
+          - not_null

@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_customer_metrics
+    description: "Customer-level purchasing metrics derived from the sales fact."
+
+    columns:
+      - name: customer_id
+        description: "Customer identifier."
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+
+      - name: total_orders
+        description: "Number of distinct orders associated with the customer."
+
+      - name: total_units
+        description: "Total number of units purchased by the customer."
+
+      - name: total_sales
+        description: "Total net sales attributed to the customer."
+
+      - name: average_order_value
+        description: "Average net sales per order for the customer."
+
+      - name: first_order_date
+        description: "First recorded order date for the customer."
+
+      - name: last_order_date
+        description: "Most recent recorded order date for the customer."

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_stores
+    description: "Store dimension for Retail360 analytics."
+    columns:
+      - name: store_id
+        description: "Unique identifier for each store."
+        tests:
+          - unique
+          - not_null

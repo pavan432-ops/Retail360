@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: fct_inventory
+    description: "Inventory snapshot fact table at inventory-date, store, and product observation grain."
+
+    columns:
+      - name: inventory_date
+        description: "Date of the inventory observation."
+        tests:
+          - not_null
+
+      - name: store_id
+        description: "Store identifier for the inventory observation."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_stores')
+              field: store_id
+
+      - name: product_id
+        description: "Product identifier for the inventory observation."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: stock_quantity
+        description: "Quantity of stock recorded for the product at the store. Missing values represent invalid source observations retained for audit."
+
+      - name: reorder_level
+        description: "Stock threshold used to identify products requiring replenishment."
+        tests:
+          - not_null
+
+      - name: stock_missing_flag
+        description: "Flag indicating that stock quantity is missing."
+
+      - name: below_reorder_flag
+        description: "Flag indicating that stock quantity is below the reorder level."
