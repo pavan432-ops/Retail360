@@ -169,6 +169,20 @@ Analytical models are materialized as tables.
 
 ## 📈 Power BI Dashboard
 
+### 🖼️ Dashboard Preview
+
+#### 1️⃣ Executive Overview
+
+![Executive Overview](screenshots/Executive%20overview%20.png)
+
+#### 2️⃣ Sales & Customer Analytics
+
+![Sales & Customer Analytics](screenshots/sales%20and%20customer%20analytics.png)
+
+#### 3️⃣ Product, Inventory & Returns
+
+![Product, Inventory & Returns](screenshots/Product%2C%20Inventory%20%26%20Returns.png)
+
 The final Power BI solution contains exactly three pages.
 
 ### 1️⃣ Executive Overview
